@@ -1,4 +1,4 @@
-package project;
+package model.entity;
 
 public class SinhVien {
     private String MaSinhVien;

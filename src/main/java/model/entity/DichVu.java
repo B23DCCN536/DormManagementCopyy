@@ -1,4 +1,4 @@
-package project;
+package model.entity;
 
 public class DichVu {
     private String TenDichVu;
