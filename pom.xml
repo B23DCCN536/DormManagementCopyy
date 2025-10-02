@@ -12,7 +12,7 @@ java-winform-project
 │   │   │   ├── view
 │   │   │   │   └── MainView.fxml
 │   │   │   └── Main.java
-│   │   └── resources
+│   │   └── resourc
 │   │       ├── css
 │   │       │   └── styles.css
 │   │       └── fxml
