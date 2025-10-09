@@ -26,7 +26,39 @@ public class SinhVien {
     public String getLop() {
         return lop;
     }
+    public String getGioiTinh(){
+        return GioiTinh;
+    }
+    public String getSDT(){
+        return SDT;
+    }
+    public void setMaSinhVien(String MaSinhVien){
+        this.MaSinhVien = MaSinhVien;
+    }
+    public void setHoVaTen(String HoTen){
+        this.HoTen = HoTen;
+    }
+    public void setLop(String Lop){
+        this.Lop = Lop;
+    }
+    public void setGioiTinh(String GioiTinh){
+        this.GioiTinh = GioiTinh;
+    }
+    public void setSDT(String SDT){
+        this.SDT = SDT;
+    }
+    public void ThemSinhVien(){
 
+    }
+    public void XoaSinhVien(){
+
+    }
+    public void SuaThongTinSinhVien(){
+
+    }
+    public void XemThongTinSinhVien(){
+
+<<<<<<< HEAD
     public String getGioiTinh() {
         return gioiTinh;
     }
@@ -65,5 +97,7 @@ public class SinhVien {
     }
 
     public void xemThongTin() {
+=======
+>>>>>>> f37ca824d31b2249f09ed14ddff61dc490028414
     }
 }

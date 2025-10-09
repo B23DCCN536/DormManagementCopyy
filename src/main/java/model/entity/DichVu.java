@@ -1,47 +1,75 @@
 package model.entity;
 
 public class DichVu {
-    private String TenDichVu;
-    private String MoTa;
-    private double DonGia;
-    private Boolean TrangThai;
-    private String MaPhong;
-
-    public DichVu(String TenDichVu, String MoTa, double DonGia, Boolean TrangThai, String MaPhong) {
-        this.TenDichVu = TenDichVu;
-        this.MoTa = MoTa;
-        this.DonGia = DonGia;
-        this.TrangThai = TrangThai;
-        this.MaPhong = MaPhong;
+    private String tenDichVu;
+    private String moTa;
+    private double donGia;
+    private Boolean trangThai;
+    private Phong phong;
+    
+    public DichVu(String tenDichVu, String moTa, double donGia, Boolean trangThai, Phong phong){
+        this.tenDichVu = tenDichVu;
+        this.moTa = moTa;
+        this.donGia = donGia;
+        this.trangThai = trangThai;
+        this.phong = phong;
     }
     
-    public String getTenDichVu() {
-        return TenDichVu;
+    public String getTenDichVu(){
+        return tenDichVu;
     }
-    public String getMoTa() {
-        return MoTa;
+    
+    public String getMoTa(){
+        return moTa;
     }
-    public double getDonGia() {
-        return DonGia;
+    
+    public double getDonGia(){
+        return donGia;
     }
-    public Boolean getTrangThai() {
-        return TrangThai;
+    
+    public Boolean getTrangThai(){
+        return trangThai;
     }
-    public String getMaPhong() {
-        return MaPhong;
+    
+    public Phong getPhong(){
+        return phong;
+    }
+    
+    public void setTenDichVu(String tenDichVu){
+        if (tenDichVu != null && !tenDichVu.trim().isEmpty()) {
+            this.tenDichVu = tenDichVu;
+        }
+    }
+    
+    public void setMoTa(String moTa){
+        this.moTa = moTa;
+    }
+    
+    public void setDonGia(double donGia){
+        this.donGia = donGia;
+    }
+    
+    public void setTrangThai(Boolean trangThai){
+        this.trangThai = trangThai;
+    }
+    
+    public void setPhong(Phong phong){
+        this.phong = phong;
     }
 
+    public void themDichVu() {
 
-
-    public void ThemDichVu() {
     }
 
-    public void XoaDichVu() {
+    public void xoaDichVu() {
+
     }
 
-    public void SuaDichVu() {
+    public void suaDichVu() {
+
     }
 
-    public void XemThongTin() {
+    public void xemThongTin() {
+
     }
 }
