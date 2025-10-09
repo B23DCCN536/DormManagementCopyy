@@ -1,50 +1,23 @@
 package model.entity;
 
 public class Phong {
-    private String MaPhong;
-    private Boolean TinhTrang;
-    private int LoaiPhong;
-    private double GiaPhong;
-    public Phong(String MaPhong, Boolean TinhTrang, int LoaiPhong, double GiaPhong){
-        this.MaPhong = MaPhong;
-        this.TinhTrang = TinhTrang;
-        this.LoaiPhong = LoaiPhong;
-        this.GiaPhong = GiaPhong;
-    }
-    public String getMaPhong(){
-        return MaPhong;
-    }
-    public Boolean getTinhTrang(){
-        return TinhTrang;
-    }
-    public int getLoaiPhong(){
-        return LoaiPhong;
-    }
-    public double getGiaPhong(){
-        return GiaPhong;
-    }
-    public void setMaPhong(String MaPhong){
-        this.MaPhong = MaPhong;
-    }
-    public void setTinhTrang(Boolean TinhTrang){
-        this.TinhTrang = TinhTrang;
-    }
-    public void setLoaiPhong(int LoaiPhong){
-        this.LoaiPhong = LoaiPhong;
-    }
-    public void setGiaPhong(double GiaPhong){
-        this.GiaPhong = GiaPhong;
-    }
-    public void ThemPhong(){
-
-    }
-    public void XoaPhong(){
-
-    }
-    public void SuaThongTinPhong(){
-
-    }
-    public void XemThongTinPhong(){
-
-    }
+    private String maPhong;
+    private Boolean tinhTrang;
+    private int loaiPhong;
+    private double giaPhong;
+    
+    // Constructor
+    public Phong(String maPhong, Boolean tinhTrang, int loaiPhong, double giaPhong) { this.maPhong = maPhong; this.tinhTrang = tinhTrang; this.loaiPhong = loaiPhong; this.giaPhong = giaPhong; }
+    
+    // Getters
+    public String getMaPhong() { return maPhong; }
+    public Boolean getTinhTrang() { return tinhTrang; }
+    public int getLoaiPhong() { return loaiPhong; }
+    public double getGiaPhong() { return giaPhong; }
+    
+    // Setters
+    public void setMaPhong(String maPhong) { this.maPhong = maPhong; }
+    public void setTinhTrang(Boolean tinhTrang) { this.tinhTrang = tinhTrang; }
+    public void setLoaiPhong(int loaiPhong) { this.loaiPhong = loaiPhong; }
+    public void setGiaPhong(double giaPhong) { this.giaPhong = giaPhong; }
 }

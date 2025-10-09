@@ -7,6 +7,7 @@ public class SinhVien {
     private String gioiTinh;
     private String sdt;
 
+    // Constructor
     public SinhVien(String maSinhVien, String hoTen, String lop, String gioiTinh, String sdt) {
         this.maSinhVien = maSinhVien;
         this.hoTen = hoTen;
@@ -15,89 +16,17 @@ public class SinhVien {
         this.sdt = sdt;
     }
 
-    public String getMaSinhVien() {
-        return maSinhVien;
-    }
+    // Getters
+    public String getMaSinhVien() { return maSinhVien; }
+    public String getHoTen() { return hoTen; }
+    public String getLop() { return lop; }
+    public String getGioiTinh() { return gioiTinh; }
+    public String getSdt() { return sdt; }
 
-    public String getHoTen() {
-        return hoTen;
-    }
-
-    public String getLop() {
-        return lop;
-    }
-    public String getGioiTinh(){
-        return GioiTinh;
-    }
-    public String getSDT(){
-        return SDT;
-    }
-    public void setMaSinhVien(String MaSinhVien){
-        this.MaSinhVien = MaSinhVien;
-    }
-    public void setHoVaTen(String HoTen){
-        this.HoTen = HoTen;
-    }
-    public void setLop(String Lop){
-        this.Lop = Lop;
-    }
-    public void setGioiTinh(String GioiTinh){
-        this.GioiTinh = GioiTinh;
-    }
-    public void setSDT(String SDT){
-        this.SDT = SDT;
-    }
-    public void ThemSinhVien(){
-
-    }
-    public void XoaSinhVien(){
-
-    }
-    public void SuaThongTinSinhVien(){
-
-    }
-    public void XemThongTinSinhVien(){
-
-<<<<<<< HEAD
-    public String getGioiTinh() {
-        return gioiTinh;
-    }
-
-    public String getSdt() {
-        return sdt;
-    }
-
-    public void setMaSinhVien(String maSinhVien) {
-        this.maSinhVien = maSinhVien;
-    }
-
-    public void setHoTen(String hoTen) {
-        this.hoTen = hoTen;
-    }
-
-    public void setLop(String lop) {
-        this.lop = lop;
-    }
-
-    public void setGioiTinh(String gioiTinh) {
-        this.gioiTinh = gioiTinh;
-    }
-
-    public void setSdt(String sdt) {
-        this.sdt = sdt;
-    }
-
-    public void themSinhVien() {
-    }
-
-    public void xoaSinhVien() {
-    }
-
-    public void suaThongTin() {
-    }
-
-    public void xemThongTin() {
-=======
->>>>>>> f37ca824d31b2249f09ed14ddff61dc490028414
-    }
+    // Setters
+    public void setMaSinhVien(String maSinhVien) { this.maSinhVien = maSinhVien; }
+    public void setHoTen(String hoTen) { this.hoTen = hoTen; }
+    public void setLop(String lop) { this.lop = lop; }
+    public void setGioiTinh(String gioiTinh) { this.gioiTinh = gioiTinh; }
+    public void setSdt(String sdt) { this.sdt = sdt; }
 }
