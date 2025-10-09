@@ -5,29 +5,51 @@ public class DichVu {
     private String MoTa;
     private double DonGia;
     private Boolean TrangThai;
-    private String MaPhong;
-
-    public DichVu(String TenDichVu, String MoTa, double DonGia, Boolean TrangThai, String MaPhong) {
+    private Phong p;
+    public DichVu(String TenDichVu, String MoTa, double DonGia, Boolean TrangThai, Phong p){
         this.TenDichVu = TenDichVu;
         this.MoTa = MoTa;
         this.DonGia = DonGia;
         this.TrangThai = TrangThai;
-        this.MaPhong = MaPhong;
+        this.p = p;
     }
-
-    public void ThemDichVu() {
+    public String getTenDichVu(){
+        return TenDichVu;
+    }
+    public String getMoTa(){
+        return MoTa;
+    }
+    public double getDonGia(){
+        return DonGia;
+    }
+    public Boolean getTrangThai(){
+        return TrangThai;
+    }
+    public Phong getPhong(){
+        return p;
+    }
+    public void setTenDichVu(String TenDichVu){
+        if (!TenDichVu.equals("")) this.TenDichVu = TenDichVu;
+    }
+    public void setMoTa(String MoTa){
+        this.MoTa = MoTa;
+    }
+    public void setDonGia(double DonGia){
+        this.DonGia = DonGia;
+    }
+    public void setTrangThai(Boolean TrangThai){
+        this.TrangThai = TrangThai;
+    }
+    public void ThemDichVu(){
 
     }
-
-    public void XoaDichVu() {
-
-    }
-
-    public void SuaDichVu() {
+    public void XoaDichVu(){
 
     }
+    public void SuaDichVu(){
 
-    public void XemThongTin() {
+    }
+    public void XemDichVu(){
 
     }
 }
