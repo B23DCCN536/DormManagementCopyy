@@ -14,20 +14,34 @@ public class DichVu {
         this.TrangThai = TrangThai;
         this.MaPhong = MaPhong;
     }
+    
+    public String getTenDichVu() {
+        return TenDichVu;
+    }
+    public String getMoTa() {
+        return MoTa;
+    }
+    public double getDonGia() {
+        return DonGia;
+    }
+    public Boolean getTrangThai() {
+        return TrangThai;
+    }
+    public String getMaPhong() {
+        return MaPhong;
+    }
+
+
 
     public void ThemDichVu() {
-
     }
 
     public void XoaDichVu() {
-
     }
 
     public void SuaDichVu() {
-
     }
 
     public void XemThongTin() {
-
     }
 }

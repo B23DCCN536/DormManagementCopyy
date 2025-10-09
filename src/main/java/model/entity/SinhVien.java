@@ -1,33 +1,69 @@
 package model.entity;
 
 public class SinhVien {
-    private String MaSinhVien;
-    private String HoTen;
-    private String Lop;
-    private String GioiTinh;
-    private String SDT;
+    private String maSinhVien;
+    private String hoTen;
+    private String lop;
+    private String gioiTinh;
+    private String sdt;
 
-    public SinhVien(String MaSinhVien, String HoTen, String Lop, String GioiTinh, String SDT) {
-        this.MaSinhVien = MaSinhVien;
-        this.HoTen = HoTen;
-        this.Lop = Lop;
-        this.GioiTinh = GioiTinh;
-        this.SDT = SDT;
+    public SinhVien(String maSinhVien, String hoTen, String lop, String gioiTinh, String sdt) {
+        this.maSinhVien = maSinhVien;
+        this.hoTen = hoTen;
+        this.lop = lop;
+        this.gioiTinh = gioiTinh;
+        this.sdt = sdt;
     }
 
-    public void ThemSinhVien() {
-        
+    public String getMaSinhVien() {
+        return maSinhVien;
     }
 
-    public void XoaSinhVien() {
-        
+    public String getHoTen() {
+        return hoTen;
     }
 
-    public void SuaThongTin() {
-        
+    public String getLop() {
+        return lop;
     }
 
-    public void XemThongTin() {
-        
+    public String getGioiTinh() {
+        return gioiTinh;
+    }
+
+    public String getSdt() {
+        return sdt;
+    }
+
+    public void setMaSinhVien(String maSinhVien) {
+        this.maSinhVien = maSinhVien;
+    }
+
+    public void setHoTen(String hoTen) {
+        this.hoTen = hoTen;
+    }
+
+    public void setLop(String lop) {
+        this.lop = lop;
+    }
+
+    public void setGioiTinh(String gioiTinh) {
+        this.gioiTinh = gioiTinh;
+    }
+
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
+    }
+
+    public void themSinhVien() {
+    }
+
+    public void xoaSinhVien() {
+    }
+
+    public void suaThongTin() {
+    }
+
+    public void xemThongTin() {
     }
 }
