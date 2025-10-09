@@ -5,27 +5,46 @@ public class Phong {
     private Boolean TinhTrang;
     private int LoaiPhong;
     private double GiaPhong;
-
-    public Phong(String MaPhong, Boolean TinhTrang, int LoaiPhong, double GiaPhong) {
+    public Phong(String MaPhong, Boolean TinhTrang, int LoaiPhong, double GiaPhong){
         this.MaPhong = MaPhong;
         this.TinhTrang = TinhTrang;
         this.LoaiPhong = LoaiPhong;
         this.GiaPhong = GiaPhong;
     }
-
-    public void ThemPhong() {
+    public String getMaPhong(){
+        return MaPhong;
+    }
+    public Boolean getTinhTrang(){
+        return TinhTrang;
+    }
+    public int getLoaiPhong(){
+        return LoaiPhong;
+    }
+    public double getGiaPhong(){
+        return GiaPhong;
+    }
+    public void setMaPhong(String MaPhong){
+        this.MaPhong = MaPhong;
+    }
+    public void setTinhTrang(Boolean TinhTrang){
+        this.TinhTrang = TinhTrang;
+    }
+    public void setLoaiPhong(int LoaiPhong){
+        this.LoaiPhong = LoaiPhong;
+    }
+    public void setGiaPhong(double GiaPhong){
+        this.GiaPhong = GiaPhong;
+    }
+    public void ThemPhong(){
 
     }
-
-    public void CapNhatThongTin() {
-
-    }
-
-    public void XoaPhong() {
+    public void XoaPhong(){
 
     }
+    public void SuaThongTinPhong(){
 
-    public void XemPhong() {
+    }
+    public void XemThongTinPhong(){
 
     }
 }
