@@ -29,10 +29,10 @@ public class HoaDon {
         return sv;
     }
     public void setMaHoaDon(String MaHoaDon){
-        this.MaHoaDon = MaHoaDon;
+        if (!MaHoaDon.equals("")) this.MaHoaDon = MaHoaDon;
     }
     public void setTongTien(Double TongTien){
-        this.TongTien = TongTien;
+        if (TongTien > 0) this.TongTien = TongTien;
     }
     public void setTinhTrang(Boolean TinhTrang){
         this.TinhTrang = TinhTrang;

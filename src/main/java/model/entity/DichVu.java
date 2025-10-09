@@ -32,10 +32,10 @@ public class DichVu {
         if (!TenDichVu.equals("")) this.TenDichVu = TenDichVu;
     }
     public void setMoTa(String MoTa){
-        this.MoTa = MoTa;
+        if (!MoTa.equals("")) this.MoTa = MoTa;
     }
     public void setDonGia(double DonGia){
-        this.DonGia = DonGia;
+        if (DonGia != 0) this.DonGia = DonGia;
     }
     public void setTrangThai(Boolean TrangThai){
         this.TrangThai = TrangThai;

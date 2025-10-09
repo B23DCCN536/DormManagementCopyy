@@ -34,13 +34,13 @@ public class HopDong {
         return p;
     }
     public void setMaHopDong(String MaHopDong){
-        this.MaHopDong = MaHopDong;
+        if (!MaHopDong.equals("")) this.MaHopDong = MaHopDong;
     }
     public void setNgayBatDau(String NgayBatDau){
-        this.NgayBatDau = NgayBatDau;
+        if (!NgayBatDau.equals("")) this.NgayBatDau = NgayBatDau;
     }
     public void setNgayKetThuc(String NgayKetThuc){
-        this.NgayKetThuc = NgayKetThuc;
+        if (!NgayKetThuc.equals("")) this.NgayKetThuc = NgayKetThuc;
     }
     public void setTrangThai(Boolean TrangThai){
         this.TrangThai = TrangThai;

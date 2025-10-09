@@ -29,19 +29,19 @@ public class SinhVien {
         return SDT;
     }
     public void setMaSinhVien(String MaSinhVien){
-        this.MaSinhVien = MaSinhVien;
+        if (!MaSinhVien.equals("")) this.MaSinhVien = MaSinhVien;
     }
     public void setHoVaTen(String HoTen){
-        this.HoTen = HoTen;
+        if (!HoTen.equals("")) this.HoTen = HoTen;
     }
     public void setLop(String Lop){
-        this.Lop = Lop;
+        if (!Lop.equals(""))this.Lop = Lop;
     }
     public void setGioiTinh(String GioiTinh){
-        this.GioiTinh = GioiTinh;
+        if (!GioiTinh.equals(""))this.GioiTinh = GioiTinh;
     }
     public void setSDT(String SDT){
-        this.SDT = SDT;
+        if (!SDT.equals("")) this.SDT = SDT;
     }
     public void ThemSinhVien(){
 

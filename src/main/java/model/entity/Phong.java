@@ -24,16 +24,16 @@ public class Phong {
         return GiaPhong;
     }
     public void setMaPhong(String MaPhong){
-        this.MaPhong = MaPhong;
+        if (!MaPhong.equals("")) this.MaPhong = MaPhong;
     }
     public void setTinhTrang(Boolean TinhTrang){
         this.TinhTrang = TinhTrang;
     }
     public void setLoaiPhong(int LoaiPhong){
-        this.LoaiPhong = LoaiPhong;
+        if (LoaiPhong >= 0) this.LoaiPhong = LoaiPhong;
     }
     public void setGiaPhong(double GiaPhong){
-        this.GiaPhong = GiaPhong;
+        if (GiaPhong > 0) this.GiaPhong = GiaPhong;
     }
     public void ThemPhong(){
 
