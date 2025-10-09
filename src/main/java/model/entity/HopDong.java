@@ -1,60 +1,29 @@
 package model.entity;
 
 public class HopDong {
-    private String MaHopDong;
-    private String NgayBatDau;
-    private String NgayKetThuc;
-    private Boolean TrangThai;
-    private SinhVien sv;
-    private Phong p;
-    public HopDong(String MaHopDong, String NgayBatDau, String NgayKetThuc, Boolean TrangThai, SinhVien sv, Phong p){
-        this.MaHopDong = MaHopDong;
-        this.NgayBatDau = NgayBatDau;
-        this.NgayKetThuc = NgayKetThuc;
-        this.TrangThai = TrangThai;
-        this.sv = sv;
-        this.p = p;
-    }
-    public String getMaHopDong(){
-        return MaHopDong;
-    }
-    public String getNgayBatDau(){
-        return NgayBatDau;
-    } 
-    public String getNgayKetThuc(){
-        return NgayKetThuc;
-    }
-    public Boolean getTrangThai(){
-        return TrangThai;
-    }
-    public SinhVien getSinhVien(){
-        return sv;
-    }
-    public Phong getPhong(){
-        return p;
-    }
-    public void setMaHopDong(String MaHopDong){
-        if (!MaHopDong.equals("")) this.MaHopDong = MaHopDong;
-    }
-    public void setNgayBatDau(String NgayBatDau){
-        if (!NgayBatDau.equals("")) this.NgayBatDau = NgayBatDau;
-    }
-    public void setNgayKetThuc(String NgayKetThuc){
-        if (!NgayKetThuc.equals("")) this.NgayKetThuc = NgayKetThuc;
-    }
-    public void setTrangThai(Boolean TrangThai){
-        this.TrangThai = TrangThai;
-    }
-    public void ThemHopDong(){
-
-    }
-    public void XoaHopDong(){
-
-    }
-    public void SuaHopDong(){
-
-    }
-    public void XemHopDong(){
-
-    }
+    private String maHopDong;
+    private String ngayBatDau;
+    private String ngayKetThuc;
+    private Boolean trangThai;
+    private SinhVien sinhVien;
+    private Phong phong;
+    
+    // Constructor
+    public HopDong(String maHopDong, String ngayBatDau, String ngayKetThuc, Boolean trangThai, SinhVien sinhVien, Phong phong) { this.maHopDong = maHopDong; this.ngayBatDau = ngayBatDau; this.ngayKetThuc = ngayKetThuc; this.trangThai = trangThai; this.sinhVien = sinhVien; this.phong = phong; }
+    
+    // Getters
+    public String getMaHopDong() { return maHopDong; }
+    public String getNgayBatDau() { return ngayBatDau; }
+    public String getNgayKetThuc() { return ngayKetThuc; }
+    public Boolean getTrangThai() { return trangThai; }
+    public SinhVien getSinhVien() { return sinhVien; }
+    public Phong getPhong() { return phong; }
+    
+    // Setters
+    public void setMaHopDong(String maHopDong) { this.maHopDong = maHopDong; }
+    public void setNgayBatDau(String ngayBatDau) { this.ngayBatDau = ngayBatDau; }
+    public void setNgayKetThuc(String ngayKetThuc) { this.ngayKetThuc = ngayKetThuc; }
+    public void setTrangThai(Boolean trangThai) { this.trangThai = trangThai; }
+    public void setSinhVien(SinhVien sinhVien) { this.sinhVien = sinhVien; }
+    public void setPhong(Phong phong) { this.phong = phong; }
 }
