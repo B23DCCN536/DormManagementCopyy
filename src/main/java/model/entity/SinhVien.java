@@ -83,8 +83,11 @@ public class SinhVien {
     public void SuaThongTinSinhVien(){
         
     }
-    @Override
-    public String toString(){
-        return "Ma sinh vien: " + MaSinhVien + ", Ho va ten: " + HoTen + ", Lop: " + Lop + ", Gioi tinh: " + GioiTinh + ", SDT: " + SDT;
+    public void XemThongTinSinhVien(){
+        System.out.println("Ma sinh vien: " + MaSinhVien);
+        System.out.println("Ho va ten: " + HoTen);
+        System.out.println("Lop: " + Lop);
+        System.out.println("Gioi tinh: " + GioiTinh);
+        System.out.println("SDT: " + SDT);
     }
 }
