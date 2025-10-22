@@ -8,8 +8,6 @@ public class Phong {
     private int LoaiPhong;
     private double GiaPhong;
     private ArrayList<SinhVien> danhSachSinhVien;
-    
-    // Constructor
     public Phong(String MaPhong, int LoaiPhong, double GiaPhong){
         this.MaPhong = MaPhong;
         this.TinhTrang = true;
@@ -17,8 +15,8 @@ public class Phong {
         this.GiaPhong = GiaPhong;
         this.danhSachSinhVien = new ArrayList<>();
     }
-    
-// Getters
+
+    // Getters
     public String getMaPhong(){
         return MaPhong;
     }
@@ -40,7 +38,7 @@ public class Phong {
         this.TinhTrang = TinhTrang;
     }
     public void setLoaiPhong(int LoaiPhong){
-        if (LoaiPhong >= 0) this.LoaiPhong = LoaiPhong;
+        if (LoaiPhong >= 0 && LoaiPhong <= 2) this.LoaiPhong = LoaiPhong;
     }
     public void setGiaPhong(double GiaPhong){
         if (GiaPhong > 0) this.GiaPhong = GiaPhong;
@@ -57,12 +55,12 @@ public class Phong {
             danhSachPhong.remove(maPhong);
         }
     }
-    public static void ThemSinhVienVaoPhong(Phong p, SinhVien sv){
+    public static void ThemSinhVienVaoPhong(Phong p, SinhVien sv, Toa t){
         if (p.getTinhTrang() == true){
             p.danhSachSinhVien.add(sv);
         }
         else System.out.println("Phong da day, khong the them sinh vien");
-        if (p.danhSachSinhVien.size() == 8)
+        if (p.danhSachSinhVien.size() == t.getSoNguoiMoiPhong())
             p.setTinhTrang(false);
     }
     public static void XoaSinhVienKhoiPhong(Phong p, SinhVien sv){
