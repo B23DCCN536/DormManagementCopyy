@@ -1,26 +1,44 @@
 package model.entity;
 
 public class HoaDon {
-    private String maHoaDon;
-    private Double tongTien;
-    private Boolean tinhTrang;
-    private HopDong hopDong;
-    private SinhVien sinhVien;
-    
-    // Constructor
-    public HoaDon(String maHoaDon, Double tongTien, Boolean tinhTrang, HopDong hopDong, SinhVien sinhVien) { this.maHoaDon = maHoaDon; this.tongTien = tongTien; this.tinhTrang = tinhTrang; this.hopDong = hopDong; this.sinhVien = sinhVien; }
-    
-    // Getters
-    public String getMaHoaDon() { return maHoaDon; }
-    public Double getTongTien() { return tongTien; }
-    public Boolean getTinhTrang() { return tinhTrang; }
-    public HopDong getHopDong() { return hopDong; }
-    public SinhVien getSinhVien() { return sinhVien; }
-    
-    // Setters
-    public void setMaHoaDon(String maHoaDon) { this.maHoaDon = maHoaDon; }
-    public void setTongTien(Double tongTien) { this.tongTien = tongTien; }
-    public void setTinhTrang(Boolean tinhTrang) { this.tinhTrang = tinhTrang; }
-    public void setHopDong(HopDong hopDong) { this.hopDong = hopDong; }
-    public void setSinhVien(SinhVien sinhVien) { this.sinhVien = sinhVien; }
+	private String MaHoaDon;
+    private Double TongTien;
+    private Boolean TinhTrang;
+
+    //constructor
+    public HoaDon(String MaHoaDon, Double TongTien, Boolean TinhTrang, HopDong hd, SinhVien sv){
+        this.MaHoaDon = MaHoaDon;
+        this.TongTien = TongTien;
+        this.TinhTrang = TinhTrang;
+    }
+
+    //getters
+    public String getMaHoaDon(){
+        return MaHoaDon;
+    }
+    public Double getTongTien(){
+        return TongTien;
+    }
+    public Boolean getTinhTrang(){
+        return TinhTrang;
+    }
+
+    //setters
+    public void setMaHoaDon(String MaHoaDon){
+        if (!MaHoaDon.equals("")) this.MaHoaDon = MaHoaDon;
+    }
+    public void setTongTien(Double TongTien){
+        if (TongTien > 0) this.TongTien = TongTien;
+    }
+    public void setTinhTrang(Boolean TinhTrang){
+        this.TinhTrang = TinhTrang;
+    }
+
+    //methods
+    public void XemHoaDon(){
+
+    }
+    public void XuatHoaDon(){
+
+    }
 }

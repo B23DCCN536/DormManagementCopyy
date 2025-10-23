@@ -1,29 +1,75 @@
 package model.entity;
 
+import java.util.TreeMap;
+
 public class HopDong {
-    private String maHopDong;
-    private String ngayBatDau;
-    private String ngayKetThuc;
-    private Boolean trangThai;
-    private SinhVien sinhVien;
-    private Phong phong;
-    
-    // Constructor
-    public HopDong(String maHopDong, String ngayBatDau, String ngayKetThuc, Boolean trangThai, SinhVien sinhVien, Phong phong) { this.maHopDong = maHopDong; this.ngayBatDau = ngayBatDau; this.ngayKetThuc = ngayKetThuc; this.trangThai = trangThai; this.sinhVien = sinhVien; this.phong = phong; }
-    
-    // Getters
-    public String getMaHopDong() { return maHopDong; }
-    public String getNgayBatDau() { return ngayBatDau; }
-    public String getNgayKetThuc() { return ngayKetThuc; }
-    public Boolean getTrangThai() { return trangThai; }
-    public SinhVien getSinhVien() { return sinhVien; }
-    public Phong getPhong() { return phong; }
-    
-    // Setters
-    public void setMaHopDong(String maHopDong) { this.maHopDong = maHopDong; }
-    public void setNgayBatDau(String ngayBatDau) { this.ngayBatDau = ngayBatDau; }
-    public void setNgayKetThuc(String ngayKetThuc) { this.ngayKetThuc = ngayKetThuc; }
-    public void setTrangThai(Boolean trangThai) { this.trangThai = trangThai; }
-    public void setSinhVien(SinhVien sinhVien) { this.sinhVien = sinhVien; }
-    public void setPhong(Phong phong) { this.phong = phong; }
+    private String MaHopDong;
+    private String NgayBatDau;
+    private String NgayKetThuc;
+    private Boolean TrangThai;
+    private HoaDon hoadon;
+
+    //constructor
+    public HopDong(String MaHopDong, String NgayBatDau, String NgayKetThuc, Boolean TrangThai, HoaDon hd){
+        this.MaHopDong = MaHopDong;
+        this.NgayBatDau = NgayBatDau;
+        this.NgayKetThuc = NgayKetThuc;
+        this.TrangThai = TrangThai;
+        this.hoadon = hd;
+    }
+
+    //getters
+    public String getMaHopDong(){
+        return MaHopDong;
+    }
+    public String getNgayBatDau(){
+        return NgayBatDau;
+    } 
+    public String getNgayKetThuc(){
+        return NgayKetThuc;
+    }
+    public Boolean getTrangThai(){
+        return TrangThai;
+    }
+
+    //setters
+    public void setMaHopDong(String MaHopDong){
+        if (!MaHopDong.equals("")) this.MaHopDong = MaHopDong;
+    }
+    public void setNgayBatDau(String NgayBatDau){
+        if (!NgayBatDau.equals("")) this.NgayBatDau = NgayBatDau;
+    }
+    public void setNgayKetThuc(String NgayKetThuc){
+        if (!NgayKetThuc.equals("")) this.NgayKetThuc = NgayKetThuc;
+    }
+    public void setTrangThai(Boolean TrangThai){
+        this.TrangThai = TrangThai;
+    }
+
+    //methods
+    public void ThemHopDong(TreeMap<String, HopDong> dsHopDong, HopDong hd){
+        if (dsHopDong == null || hd == null) 
+            System.out.println("Không được để trống");
+        else if (hd.getMaHopDong() == null || hd.getMaHopDong().trim().isEmpty()) 
+            System.out.println("Mã hợp đồng không hợp lệ");
+        else if (dsHopDong.containsKey(hd.getMaHopDong()))
+            System.out.println("Hợp đồng đã tồn tại.");
+        else dsHopDong.put(hd.getMaHopDong(), hd);
+    }
+    public void XoaHopDong(TreeMap<String, HopDong> dsHopDong, String maHD){
+        if (dsHopDong == null) 
+            System.out.println("Danh sách hợp đồng trống");
+        else if (!dsHopDong.containsKey(maHD))
+            System.out.println("Hợp đồng không tồn tại.");
+        else dsHopDong.remove(maHD);
+    }
+    public void SuaHopDong(){
+
+    }
+    public void XemThongTinHopDong(){
+        System.out.println("Mã hợp đồng: " + MaHopDong);
+        System.out.println("Ngày bắt đầu: " + NgayBatDau);
+        System.out.println("Ngày kết thúc: " + NgayKetThuc);
+        System.out.println("Trạng thái: " + (TrangThai ? "Còn hiệu lực" : "Đã kết thúc"));
+    }
 }

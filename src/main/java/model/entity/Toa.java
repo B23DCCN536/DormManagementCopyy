@@ -40,6 +40,5 @@ public class Toa {
         if (SoNguoiMoiPhong > 0) this.SoNguoiMoiPhong = SoNguoiMoiPhong;
     }
 
-
 }
 

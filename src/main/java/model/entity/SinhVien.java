@@ -1,6 +1,7 @@
 package model.entity;
 
 import java.util.TreeMap;
+
 public class SinhVien {
     private String MaSinhVien;
     private String HoTen;
@@ -8,16 +9,16 @@ public class SinhVien {
     private String GioiTinh;
     private String SDT;
 
-    // Constructor
-    public SinhVien(String maSinhVien, String hoTen, String lop, String gioiTinh, String sdt) {
-        this.MaSinhVien = maSinhVien;
-        this.HoTen = hoTen;
-        this.Lop = lop;
-        this.GioiTinh = gioiTinh;
-        this.SDT = sdt;
+    //constructor
+    public SinhVien(String MaSinhVien, String HoTen, String Lop, String GioiTinh, String SDT){
+        this.MaSinhVien = MaSinhVien;
+        this.HoTen = HoTen;
+        this.Lop = Lop;
+        this.GioiTinh = GioiTinh;
+        this.SDT = SDT;
     }
 
-    // Getters
+    //getters
     public String getMaSinhVien(){
         return MaSinhVien;
     }
@@ -33,9 +34,8 @@ public class SinhVien {
     public String getSDT(){
         return SDT;
     }
-    
 
-    // Setters
+    //setters
     public void setMaSinhVien(String MaSinhVien){
         if (!MaSinhVien.equals("")) this.MaSinhVien = MaSinhVien;
     }
@@ -52,16 +52,16 @@ public class SinhVien {
         if (!SDT.equals("")) this.SDT = SDT;
     }
 
-    // Methods
+    //methods
     public static void ThemSinhVien(TreeMap<String, SinhVien> danhSachSV, SinhVien sv) {
         try {
             if (danhSachSV == null || sv == null) 
                 throw new IllegalArgumentException("Tham số không được null");
-            if (sv.getMaSinhVien() == null || sv.getMaSinhVien().trim().isEmpty()) 
+            else if (sv.getMaSinhVien() == null || sv.getMaSinhVien().trim().isEmpty()) 
                 throw new IllegalArgumentException("Mã sinh viên không hợp lệ");
-            if (danhSachSV.containsKey(sv.getMaSinhVien())) 
+            else if (danhSachSV.containsKey(sv.getMaSinhVien())) 
                 System.out.println("Sinh viên đã tồn tại.");
-            danhSachSV.put(sv.getMaSinhVien(), sv);
+            else danhSachSV.put(sv.getMaSinhVien(), sv);
         } catch (Exception e) {
             System.out.println("Lỗi: " + e.getMessage());
         }
@@ -69,7 +69,7 @@ public class SinhVien {
     public static void XoaSinhVien(TreeMap<String, SinhVien> danhSachSV, String maSV){
         try {
             if (danhSachSV == null) 
-                throw new IllegalArgumentException("Danh sách sinh viên không được null");
+                throw new IllegalArgumentException("Danh sách sinh viên không được để trống");
             if (maSV == null || maSV.trim().isEmpty()) 
                 throw new IllegalArgumentException("Mã sinh viên không hợp lệ");
             if (!danhSachSV.containsKey(maSV)) {
@@ -80,8 +80,20 @@ public class SinhVien {
             System.out.println("Lỗi: " + e.getMessage());
         }
     }
-    public void SuaThongTinSinhVien(){
-        
+    public void SuaThongTinSinhVien(SinhVien sv, String HoTen, String Lop, String GioiTinh, String SDT){
+        if (sv == null) {
+            System.out.println("Không được để trống");
+            return;
+        }
+        if (HoTen != null && !HoTen.trim().isEmpty() && Lop != null && !Lop.trim().isEmpty() && GioiTinh != null && !GioiTinh.trim().isEmpty() && SDT != null && !SDT.trim().isEmpty()) {
+            sv.setHoVaTen(HoTen);
+            sv.setLop(Lop);
+            sv.setGioiTinh(GioiTinh);
+            sv.setSDT(SDT);
+        }
+        else {
+            System.out.println("Thông tin không hợp lệ");
+        }
     }
     public void XemThongTinSinhVien(){
         System.out.println("Ma sinh vien: " + MaSinhVien);
