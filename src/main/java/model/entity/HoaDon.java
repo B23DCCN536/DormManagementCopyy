@@ -1,15 +1,19 @@
 package model.entity;
 
+import BaiToanTuyenSinh.SinhVien;
+
 public class HoaDon {
 	private String MaHoaDon;
     private Double TongTien;
     private Boolean TinhTrang;
+    private SinhVien sv;
 
     //constructor
-    public HoaDon(String MaHoaDon, Double TongTien, Boolean TinhTrang, HopDong hd, SinhVien sv){
+    public HoaDon(String MaHoaDon, Double TongTien, Boolean TinhTrang, SinhVien sv){
         this.MaHoaDon = MaHoaDon;
         this.TongTien = TongTien;
         this.TinhTrang = TinhTrang;
+        this.sv = sv;
     }
 
     //getters
@@ -21,6 +25,9 @@ public class HoaDon {
     }
     public Boolean getTinhTrang(){
         return TinhTrang;
+    }
+    public SinhVien getSinhVien(){
+        return sv;
     }
 
     //setters

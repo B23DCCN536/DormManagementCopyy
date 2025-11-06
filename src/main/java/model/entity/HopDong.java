@@ -2,6 +2,8 @@ package model.entity;
 
 import java.util.TreeMap;
 
+import TempCodeRunner.HoaDon;
+
 public class HopDong {
     private String MaHopDong;
     private String NgayBatDau;
@@ -30,6 +32,9 @@ public class HopDong {
     }
     public Boolean getTrangThai(){
         return TrangThai;
+    }
+    public HoaDon getHoaDon(){
+        return hoadon;
     }
 
     //setters
@@ -63,8 +68,11 @@ public class HopDong {
             System.out.println("Hợp đồng không tồn tại.");
         else dsHopDong.remove(maHD);
     }
-    public void SuaHopDong(){
-
+    public void SuaHopDong(String MaHopDong, String NgayBatDau, String NgayKetThuc, Boolean TrangThai){
+        if (MaHopDong != null && !MaHopDong.trim().isEmpty() ) this.MaHopDong = MaHopDong;
+        if (NgayBatDau != null && !NgayBatDau.trim().isEmpty() ) this.NgayBatDau = NgayBatDau;
+        if (NgayKetThuc != null && !NgayKetThuc.trim().isEmpty() ) this.NgayKetThuc = NgayKetThuc;
+        if (TrangThai != null ) this.TrangThai = TrangThai;
     }
     public void XemThongTinHopDong(){
         System.out.println("Mã hợp đồng: " + MaHopDong);

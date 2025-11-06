@@ -80,20 +80,12 @@ public class SinhVien {
             System.out.println("Lỗi: " + e.getMessage());
         }
     }
-    public void SuaThongTinSinhVien(SinhVien sv, String HoTen, String Lop, String GioiTinh, String SDT){
-        if (sv == null) {
-            System.out.println("Không được để trống");
-            return;
-        }
-        if (HoTen != null && !HoTen.trim().isEmpty() && Lop != null && !Lop.trim().isEmpty() && GioiTinh != null && !GioiTinh.trim().isEmpty() && SDT != null && !SDT.trim().isEmpty()) {
-            sv.setHoVaTen(HoTen);
-            sv.setLop(Lop);
-            sv.setGioiTinh(GioiTinh);
-            sv.setSDT(SDT);
-        }
-        else {
-            System.out.println("Thông tin không hợp lệ");
-        }
+    public void SuaThongTinSinhVien(String MaSinhVien, String HoTen, String Lop, String GioiTinh, String SDT){
+        if (msv != null && !msv.trim().isEmpty() ) this.MaSinhVien = MaSinhVien;
+        if (HoTen != null && !HoTen.trim().isEmpty() ) this.HoTen = HoTen;
+        if (Lop != null && !Lop.trim().isEmpty() ) this.Lop = Lop;
+        if (GioiTinh != null && !GioiTinh.trim().isEmpty() ) this.GioiTinh = GioiTinh;
+        if (SDT != null && !SDT.trim().isEmpty() ) this.SDT = SDT;
     }
     public void XemThongTinSinhVien(){
         System.out.println("Ma sinh vien: " + MaSinhVien);
