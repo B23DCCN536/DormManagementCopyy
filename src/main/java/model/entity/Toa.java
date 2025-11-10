@@ -40,5 +40,15 @@ public class Toa {
         if (SoNguoiMoiPhong > 0) this.SoNguoiMoiPhong = SoNguoiMoiPhong;
     }
 
+    public void capNhatThongTinToa(String tenToa, int soTang, int soPhong, int SoNguoiMoiPhong) {
+        setTenToa(tenToa);
+        setSoTang(soTang);
+        setSoPhong(soPhong);
+        setSoNguoiMoiPhong(SoNguoiMoiPhong);
+    }
+    public void hienThiThongTinToa() {
+        System.out.printf("Toa: %s, So tang: %d, So phong: %d, So nguoi moi phong: %d\n",
+                this.TenToa, this.SoTang, this.SoPhong, this.SoNguoiMoiPhong);
+    }
 }
 

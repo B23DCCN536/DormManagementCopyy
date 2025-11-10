@@ -43,7 +43,8 @@ public class HoaDon {
 
     //methods
     public void XemHoaDon(){
-
+        System.out.printf("Ma hoa don: %s, Tong tien: %.2f, Tinh trang: %s\n",
+                this.MaHoaDon, this.TongTien, this.TinhTrang ? "Da thanh toan" : "Chua thanh toan");
     }
     public void XuatHoaDon(){
 
