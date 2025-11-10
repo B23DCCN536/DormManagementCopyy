@@ -74,6 +74,12 @@ public class Phong {
             sv.XemThongTinSinhVien();
         }
     }
+    public void SuaThongTinPhong(String MaPhong, Boolean TinhTrang, int LoaiPhong, double GiaPhong){
+        if (MaPhong != null && !MaPhong.trim().isEmpty() ) this.MaPhong = MaPhong;
+        if (TinhTrang != null ) this.TinhTrang = TinhTrang;
+        if (LoaiPhong >= 0 && LoaiPhong <= 2 ) this.LoaiPhong = LoaiPhong;
+        if (GiaPhong > 0 ) this.GiaPhong = GiaPhong;
+    }
     public void XemThongTinPhong(){
         System.out.println("Thong tin phong:");
         System.out.println("Ma phong: " + MaPhong);
