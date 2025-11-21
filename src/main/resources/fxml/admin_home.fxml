@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dorm.controller.TrangChuAdminController">
+   <children>
+      <VBox spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <children>
+            <Label styleClass="header-label" text="Trang Chủ Admin">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <HBox spacing="50.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox spacing="10.0" styleClass="card" prefWidth="300.0">
+                     <children>
+                        <Label text="Thông tin cá nhân" styleClass="card-title" />
+                        <HBox spacing="10.0">
+                           <children>
+                              <Label text="Họ tên:" styleClass="info-label" />
+                              <Label fx:id="nameLabel" text="Nguyễn Văn A" styleClass="info-value" />
+                           </children>
+                        </HBox>
+                        <HBox spacing="10.0">
+                           <children>
+                              <Label text="Email:" styleClass="info-label" />
+                              <Label fx:id="emailLabel" text="admin@example.com" styleClass="info-value" />
+                           </children>
+                        </HBox>
+                        <HBox spacing="10.0">
+                           <children>
+                              <Label text="SĐT:" styleClass="info-label" />
+                              <Label fx:id="phoneLabel" text="0123456789" styleClass="info-value" />
+                           </children>
+                        </HBox>
+                        <javafx.scene.control.Button mnemonicParsing="false" onAction="#handleChangePassword" styleClass="button" text="Đổi mật khẩu" />
+                     </children>
+                  </VBox>
+                  
+                  <VBox spacing="10.0" styleClass="card" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Thông báo mới nhất" styleClass="card-title" />
+                        <ListView fx:id="notificationList" VBox.vgrow="ALWAYS" styleClass="list-view" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
