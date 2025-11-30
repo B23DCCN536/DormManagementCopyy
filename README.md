@@ -1,9 +1,9 @@
 # Phần Mềm Quản Lý Ký Túc Xá PTIT (DormManagement)
 
-![Logo](src/main/resources/image/Logo_PTIT_University.png)
-
 ## 1. Giới Thiệu
-**DormManagement** là hệ thống phần mềm quản lý ký túc xá được xây dựng dành riêng cho Học viện Công nghệ Bưu chính Viễn thông (PTIT). Ứng dụng giúp số hóa quy trình quản lý, từ việc xếp phòng, quản lý hợp đồng, tính toán điện nước đến việc tiếp nhận và xử lý sự cố, giúp ban quản lý tiết kiệm thời gian và nâng cao hiệu quả công việc.
+**DormManagement** là hệ thống phần mềm quản lý ký túc xá được xây dựng dành riêng cho Học viện Công nghệ Bưu chính Viễn thông (PTIT). Ứng dụng giúp số hóa quy trình quản lý, từ việc xếp phòng, quản lý hợp đồng, tính toán điện nước đến việc tiếp nhận và xử lý sự cố, giúp ban quản lý tiết kiệm thời gian và nâng cao hiệu quả công việc. 
+
+Chi tiết xem thêm tại [docs của dự án (đang cập nhật)](https://docs.google.com/document/d/1p1yCRwZPHPiE018SR1CzKuirQsjd96QzvHBwBb2Fhas/edit?usp=sharing)
 
 ## 2. Công Nghệ Sử Dụng
 Dự án được phát triển dựa trên các công nghệ hiện đại và ổn định:

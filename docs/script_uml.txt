@@ -1,0 +1,228 @@
+@startuml
+
+' --- CẤU HÌNH GIAO DIỆN ---
+skinparam class {
+    BackgroundColor #FEFCE0
+    ArrowColor #333333
+    BorderColor #A80036
+    AttributeFontSize 13
+    MethodFontSize 13
+    FontName "Segoe UI"
+}
+skinparam shadowing false
+skinparam linetype ortho
+' Tăng khoảng cách giữa các node để dễ nhìn hơn
+skinparam nodesep 100
+skinparam ranksep 100
+
+' --- ENUMERATIONS ---
+package "Enumerations" {
+    enum QuyenTruyCap <<enumeration>> {
+        ADMIN
+        SINH_VIEN
+    }
+
+    enum TrangThaiPhong <<enumeration>> {
+        TRONG
+        DA_DU
+        DANG_SUA
+    }
+
+    enum TrangThaiHopDong <<enumeration>> {
+        HIEU_LUC
+        HET_HAN
+    }
+
+    enum TrangThaiSuCo <<enumeration>> {
+        CHO_XU_LY
+        DANG_XU_LY
+        DA_XU_LY
+    }
+}
+
+' --- CÁC CLASS CHÍNH ---
+
+class TaiKhoan {
+    + string username
+    - string password
+    + QuyenTruyCap role
+    --
+    + dangNhap() : bool
+    + doiMatKhau() : void
+    + kiemTraQuyen() : bool
+}
+
+class Admin {
+    + string username
+    + string hoTen
+    + string sdt
+    + string email
+    --
+    + quanLySinhVien() : void
+    + quanLyPhong() : void
+}
+
+class SinhVien {
+    + string maSinhVien
+    + string username
+    + string hoTen
+    + LocalDate ngaySinh
+    + string gioiTinh
+    + string lop
+    + string sdt
+    + string cccd
+    + string email
+    + string queQuan
+    --
+    + xemThongTin() : void
+    + xemHoaDon() : List<HoaDon>
+}
+
+class Toa {
+    + string maToa
+    + string tenToa
+    + string ghiChu
+    --
+    + layDanhSachPhong() : List<Phong>
+}
+
+class LoaiPhong {
+    + string maLoaiPhong
+    + string tenLoaiPhong
+    + double donGia
+    + int soNguoiToiDa
+}
+
+class Phong {
+    + string maPhong
+    + string maToa
+    + string maLoaiPhong
+    + string tenPhong
+    + int soNguoiHienTai
+    + string gioitinh
+    + TrangThaiPhong trangThai
+    --
+    + themSinhVien() : bool
+    + xoaSinhVien() : void
+}
+
+class HopDong {
+    + string maHopDong
+    + string maSinhVien
+    + string maPhong
+    + double giaPhong
+    + LocalDate ngayLap
+    + LocalDate ngayBatDau
+    + LocalDate ngayKetThuc
+    + TrangThaiHopDong trangThai
+    --
+    + giaHan() : void
+    + thanhLy() : void
+}
+
+class YeuCauGiaHan {
+    + int maYeuCau
+    + string maHopDong
+    + string maSinhVien
+    + int soThang
+    + double tongTien
+    + LocalDate ngayGui
+    + string trangThai
+    --
+    + duyetYeuCau() : void
+    + tuChoiYeuCau() : void
+}
+
+class ChiSoDienNuoc {
+    + string maChiSo
+    + string maPhong
+    + int thang
+    + int nam
+    + int sodien
+    + int sonuoc
+    + double donGiaDien
+    + double donGiaNuoc
+    + double thanhTienDien
+    + double thanhTienNuoc
+    --
+    + tinhTienDien() : double
+    + tinhTienNuoc() : double
+}
+
+class HoaDon {
+    + string maHoaDon
+    + string maPhong
+    + string maChiSo
+    + int thang
+    + int nam
+    + LocalDate ngayLap
+    + double tienDien
+    + double tienNuoc
+    + double tongTien
+    + string trangThai
+    + LocalDate ngayDong
+    + string nguoiNopTien
+    --
+    + tinhTong() : double
+}
+
+class SuCo {
+    + string maSuCo
+    + string maPhong
+    + string maSinhVien
+    + string tieuDe
+    + string noiDung
+    + LocalDate ngayBao
+    + TrangThaiSuCo trangThai
+    --
+    + capNhatTrangThai() : void
+}
+
+class ThongBao {
+    + string maThongBao
+    + string tieuDe
+    + string noiDung
+    + LocalDate ngayDang
+    --
+    + guiThongBao() : void
+}
+
+' --- ĐỊNH NGHĨA QUAN HỆ (RELATIONSHIPS) ---
+
+' Quan hệ Tài khoản
+Admin "0..1" -- "1" TaiKhoan : soHuu >
+SinhVien "0..1" -- "1" TaiKhoan : soHuu >
+TaiKhoan ..> QuyenTruyCap : suDung >
+
+' Quan hệ Tòa - Phòng
+Toa "1" *-- "1..*" Phong : baoGom >
+LoaiPhong "1" -- "0..*" Phong : phanLoai >
+
+' Quan hệ Hợp đồng
+SinhVien "1" -- "0..*" HopDong : kyKet >
+Phong "1" -- "0..*" HopDong : duocThue >
+HopDong ..> TrangThaiHopDong : suDung >
+
+' Quan hệ Yêu cầu gia hạn
+SinhVien "1" -- "0..*" YeuCauGiaHan : gui >
+HopDong "1" -- "0..*" YeuCauGiaHan : lienQuan >
+
+' Quan hệ Điện nước & Hóa đơn
+Phong "1" *-- "0..*" ChiSoDienNuoc : ghiNhan >
+ChiSoDienNuoc "1" *-- "0..1" HoaDon : coSoTinhToan >
+Phong "1" -- "0..*" HoaDon : phatSinh >
+SinhVien "1" -- "0..*" HoaDon : nopTien >
+
+' Quan hệ Sự cố
+SinhVien "1" -- "0..*" SuCo : baoCao >
+Phong "1" -- "0..*" SuCo : gapPhai >
+SuCo ..> TrangThaiSuCo : suDung >
+
+' Quan hệ Thông báo
+Admin "1" -- "0..*" ThongBao : tao >
+SinhVien "0..*" -- "0..*" ThongBao : nhan >
+
+' Quan hệ Trạng thái Phòng
+Phong ..> TrangThaiPhong : suDung >
+
+@endum
