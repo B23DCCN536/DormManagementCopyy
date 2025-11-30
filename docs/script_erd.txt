@@ -1,0 +1,154 @@
+// --- KHỐI 1: HỆ THỐNG & TÀI KHOẢN ---
+
+Table TaiKhoan {
+  username varchar(50) [pk] // Tên đăng nhập
+  password varchar(100)     
+  role varchar(20)          // ADMIN, SINH_VIEN
+}
+
+Table Admin {
+  username varchar(50) [pk] // FK -> TaiKhoan.username
+  hoTen nvarchar(50)
+  sdt varchar(15)
+  email varchar(100)        
+}
+
+Table SinhVien {
+  maSinhVien varchar(20) [pk]
+  username varchar(50) [unique] // FK -> TaiKhoan.username
+  hoTen nvarchar(50)
+  ngaySinh date
+  gioiTinh nvarchar(10)
+  lop varchar(20)
+  sdt varchar(15)
+  cccd varchar(20)
+  email varchar(100)
+  queQuan nvarchar(200)
+}
+
+// --- KHỐI 2: CƠ SỞ VẬT CHẤT (Giữ nguyên) ---
+
+Table Toa {
+  maToa varchar(10) [pk]
+  tenToa nvarchar(50)
+  ghiChu nvarchar(200)
+}
+
+Table LoaiPhong {
+  maLoaiPhong varchar(10) [pk]
+  tenLoaiPhong nvarchar(50)
+  donGia decimal(18,0) // Giá cho 1 người (để tham khảo tính toán)
+  soNguoiToiDa int
+}
+
+Table Phong {
+  maPhong varchar(10) [pk]
+  maToa varchar(10)
+  maLoaiPhong varchar(10)
+  tenPhong nvarchar(50)
+  soNguoiHienTai int    
+  gioitinh varchar(10) //NAM, NU
+  trangThai varchar(20) // TRONG, DA_DU, DANG_SUA
+}
+
+// --- KHỐI 3: NGHIỆP VỤ ---
+
+Table HopDong {
+  maHopDong varchar(20) [pk]
+  maSinhVien varchar(20) // Vẫn cần biết SV nào ở phòng nào
+  maPhong varchar(10)
+  giaPhong decinmal(18,0)
+  ngayLap date
+  ngayBatDau date
+  ngayKetThuc date
+  trangThai varchar(20) 
+}
+
+Table YeuCauGiaHan {
+  maYeuCau int [pk, increment]
+  maHopDong varchar(20)
+  maSinhVien varchar(20)
+  soThang int
+  tongTien decimal(18,0)
+  ngayGui date
+  trangThai varchar(20) // CHO_DUYET, DA_DUYET, TU_CHOI
+}
+
+// --- KHỐI 4: TÀI CHÍNH (Đã sửa theo yêu cầu) ---
+Table ChiSoDienNuoc {
+  maChiSo varchar(20) [pk] 
+  maPhong varchar(10)      // Chỉ số gắn với phòng
+  thang int
+  nam int
+  
+  sodien int
+  sonuoc int
+  
+  donGiaDien decimal(18,0)
+  donGiaNuoc decimal(18,0)
+  
+  thanhTienDien decimal(18,0) 
+  thanhTienNuoc decimal(18,0) 
+}
+
+Table HoaDon {
+  maHoaDon varchar(20) [pk]
+  maPhong varchar(10)      // CHANGE: Hóa đơn gắn với Phòng, không phải SV
+  maChiSo varchar(20) [null]
+  thang int
+  nam int
+  ngayLap date
+  
+  // Các khoản tiền (Tổng cho cả phòng)
+  tienDien decimal(18,0)  
+  tienNuoc decimal(18,0)   
+  tongTien decimal(18,0)
+  
+  trangThai varchar(20)   // CHUA_TT, DA_TT
+  ngayDong date           // Ngày thực sự đóng tiền
+  nguoiNopTien varchar(20) // Sinh viên đại diện đóng tiền
+}
+
+// --- KHỐI 5: TIỆN ÍCH & SỰ CỐ ---
+
+Table SuCo {
+  maSuCo varchar(20) [pk]
+  maPhong varchar(10)
+  maSinhVien varchar(20) // Người báo cáo
+  tieuDe nvarchar(100)
+  noiDung nvarchar(500)
+  ngayBao date
+  trangThai varchar(20) // CHO_XU_LY, DANG_XU_LY, DA_XU_LY
+}
+
+Table ThongBao {
+  maThongBao varchar(20) [pk]
+  tieuDe nvarchar(100)
+  noiDung nvarchar(500)
+  ngayDang date
+}
+
+// --- QUAN HỆ ---
+
+Ref: TaiKhoan.username - Admin.username 
+Ref: TaiKhoan.username - SinhVien.username 
+
+Ref: Toa.maToa < Phong.maToa
+Ref: LoaiPhong.maLoaiPhong < Phong.maLoaiPhong
+
+Ref: SinhVien.maSinhVien < HopDong.maSinhVien
+Ref: Phong.maPhong < HopDong.maPhong
+
+Ref: HopDong.maHopDong < YeuCauGiaHan.maHopDong
+Ref: SinhVien.maSinhVien < YeuCauGiaHan.maSinhVien
+
+Ref: Phong.maPhong < ChiSoDienNuoc.maPhong
+
+Ref: Phong.maPhong < HoaDon.maPhong // 1 Phòng có nhiều hóa đơn (theo tháng)
+Ref: SinhVien.maSinhVien < HoaDon.nguoiNopTien // Sinh viên đóng tiền
+Ref: ChiSoDienNuoc.maChiSo < HoaDon.maChiSo
+
+Ref: Phong.maPhong < SuCo.maPhong
+Ref: SinhVien.maSinhVien < SuCo.maSinhVien
+
+Ref: Phong.maPhong < Phong.maToa
