@@ -84,17 +84,39 @@ Hệ thống sử dụng **SQL Server**.
 *   Maven 3.x.
 *   SQL Server (2019 hoặc mới hơn).
 
+### Cấu hình SQL Server (Bắt buộc)
+Trước khi chạy ứng dụng, hãy đảm bảo SQL Server đã được cấu hình đúng:
+
+**1. Kích hoạt TCP/IP:**
+*   Mở **SQL Server Configuration Manager**.
+*   Đi tới **SQL Server Network Configuration** > **Protocols for [Tên Instance]** (ví dụ: SQLEXPRESS).
+*   Đảm bảo trạng thái của **TCP/IP** là **Enabled**.
+*   Chuột phải vào **TCP/IP** > **Properties** > Tab **IP Addresses**.
+*   Kéo xuống dưới cùng mục **IPAll**, đặt **TCP Port** thành `1433` và xóa trống **TCP Dynamic Ports**.
+*   Khởi động lại dịch vụ SQL Server (SQL Server Services > Chuột phải vào SQL Server > Restart).
+
+**2. Đăng nhập SSMS:**
+*   Mở **SQL Server Management Studio (SSMS)**.
+*   Tại cửa sổ **Connect to Server**:
+    *   **Server type:** Database Engine.
+    *   **Server name:** tên server trên SSMS. Nếu chỉ có 
+    *   **Authentication:** Chọn **Windows Authentication** để đăng nhập bằng tài khoản máy tính hiện tại (không cần mật khẩu).
+*   Nhấn **Connect**.
+*   *Lưu ý:* Để ứng dụng kết nối được, bạn nên kích hoạt chế độ **SQL Server and Windows Authentication mode** (chuột phải vào Server > Properties > Security) và kích hoạt tài khoản `sa` hoặc tạo user mới.
+
 ### Bước 1: Chuẩn bị Cơ sở dữ liệu
 1.  Mở SQL Server Management Studio (SSMS).
 2.  Tạo một database mới tên là `DormManagement`.
 
 ### Bước 2: Cấu hình kết nối
 1.  Mở file `src/main/resources/config/application.properties`.
-2.  Cập nhật thông tin kết nối phù hợp với máy của bạn:
+2.  Cập nhật thông tin kết nối phù hợp với máy của bạn.
+    *   **Lưu ý:** Nếu bạn dùng SQL Server bản mặc định (Default Instance), hãy xóa tham số `instanceName=...;` đi.
+    *   Ví dụ cấu hình với **Named Instance** (như `CE01_SQL`):
     ```properties
-    database.url=jdbc:sqlserver://localhost;databaseName=DormManagement;encrypt=true;trustServerCertificate=true
+    database.url=jdbc:sqlserver://localhost;instanceName=CE01_SQL;databaseName=DormManagement;encrypt=true;trustServerCertificate=true
     database.username=sa
-    database.password=your_password
+    database.password=(your_password)
     ```
 
 ### Bước 3: Khởi tạo Bảng & Dữ liệu

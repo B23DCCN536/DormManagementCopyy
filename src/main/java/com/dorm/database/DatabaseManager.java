@@ -23,7 +23,7 @@ public class DatabaseManager {
     private static final Path DEFAULT_DOCS_DIRECTORY = Path.of("docs");
     
     private static final String SCHEMA_SCRIPT = "Tao_bang.sql";
-    private static final String SEED_SCRIPT = "Nhap_du_lieu.sql";
+    private static final String SEED_SCRIPT = "Nhap_du_lieu_large.sql";
     
     private static final String DEFAULT_HEALTH_TABLE = "TAI_KHOAN";
     private static DatabaseManager instance;
@@ -110,12 +110,12 @@ public class DatabaseManager {
     
     public synchronized void initializeSchemaIfNeeded() {
         if (!tableExists(this.healthCheckTable) || !tableExists("ThongBao") || !tableExists("SuCo") || !tableExists("YeuCauGiaHan")) {
-            executeDocScript("Tao_bang.sql");
+            executeDocScript(SCHEMA_SCRIPT);
         }
     }
     
     public synchronized void seedSampleData() {
-        executeDocScript("Nhap_du_lieu.sql");
+        executeDocScript(SEED_SCRIPT);
     }
     
     public synchronized void executeDocScript(String scriptFileName) {
